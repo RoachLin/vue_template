@@ -1,38 +1,39 @@
 <script setup lang="ts">
-import { ref, reactive } from "vue";
+import { reactive, toRefs, toRef, type Ref } from "vue";
 
 /* ------------------------------------------------------------------------------------------ */
 
-type Car = {
-  brand: string;
-  price: number;
+type Person = {
+  name: string;
+  age: number;
 };
 
-const benz: Car = reactive({
-  brand: "奔驰",
-  price: 100,
+const person: Person = reactive({
+  name: "张三",
+  age: 18,
 });
 
-function changePrice(): void {
-  benz.price += 10;
+const { name: name1, age: age1 } = toRefs(person);
+
+function changeName(): void {
+  name1.value += "~";
+}
+
+function changeAge(): void {
+  age1.value += 1;
 }
 
 /* ------------------------------------------------------------------------------------------ */
 
-const sum = ref<number>(0);
-
-function changeSum(): void {
-  sum.value += 1;
-}
+const age2: Ref<number> = toRef(person, "age");
 </script>
 
 <template>
   <div class="person">
-    <h2>汽车信息：一辆{{ benz.brand }}车，价值{{ benz.price }}万</h2>
-    <button @click="changePrice">修改汽车的价格</button>
-    <hr />
-    <h2>当前求和为：{{ sum }}</h2>
-    <button @click="changeSum">点我sum+1</button>
+    <h2>姓名：{{ name1 }}</h2>
+    <h2>年龄：{{ age1 }}，{{ age2 }}</h2>
+    <button @click="changeName">修改名字</button>
+    <button @click="changeAge">修改年龄</button>
   </div>
 </template>
 
