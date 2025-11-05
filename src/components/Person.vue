@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { ref } from "vue";
 
 /* ------------------------------------------------------------------------------------------ */
 
@@ -8,13 +8,13 @@ type Car = {
   price: number;
 };
 
-const benz: Car = reactive({
+const benz = ref<Car>({
   brand: "奔驰",
   price: 100,
 });
 
 function changePrice(): void {
-  benz.price += 10;
+  benz.value.price += 10;
 }
 
 /* ------------------------------------------------------------------------------------------ */
@@ -24,15 +24,15 @@ type Game = {
   name: string;
 };
 
-const games: Array<Game> = reactive([
+const games = ref<Array<Game>>([
   { id: "111", name: "王者" },
   { id: "222", name: "原神" },
   { id: "333", name: "三国" },
 ]);
 
 function changeFirstName(): void {
-  if (games[0]) {
-    games[0].name = "魔兽世界";
+  if (games.value[0]) {
+    games.value[0].name = "魔兽世界";
   }
 }
 </script>
