@@ -15,21 +15,21 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "pinia": "~3.0",
-    "vue": "~3.5",
-    "vue-router": "~4.6",
-    "element-plus": "~2.11"
+    "pinia": "latest",
+    "vue": "latest",
+    "vue-router": "latest",
+    "element-plus": "latest"
   },
   "devDependencies": {
     "@tsconfig/node24": "latest",
     "@types/node": "^24",
-    "@vitejs/plugin-vue": "~6.0",
-    "@vue/tsconfig": "<1",
-    "npm-run-all2": "~8.0",
-    "prettier": "^3",
-    "typescript": "^5",
-    "vite": "~7.1",
-    "vite-plugin-vue-devtools": "~8.0",
-    "vue-tsc": "~3.1"
+    "@vitejs/plugin-vue": "latest",
+    "@vue/tsconfig": "latest",
+    "npm-run-all2": "latest",
+    "prettier": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vite-plugin-vue-devtools": "latest",
+    "vue-tsc": "latest"
   }
 }
