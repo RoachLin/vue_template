@@ -1,8 +1,12 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
 
 const firstName = ref<string>("");
 const lastName = ref<string>("");
+
+const fullName = computed<string>(() => {
+  return firstName.value.slice(0, 1).toUpperCase() + firstName.value.slice(1) + "-" + lastName.value;
+});
 </script>
 
 <template>
@@ -11,7 +15,7 @@ const lastName = ref<string>("");
     <br />
     名： <input type="text" v-model="lastName" />
     <br />
-    全名： <span>{{ firstName }}-{{ lastName }}</span>
+    全名： <span>{{ fullName }}</span>
     <br />
   </div>
 </template>
